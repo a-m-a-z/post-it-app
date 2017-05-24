@@ -1,0 +1,34 @@
+{
+  "name": "post-it-app",
+  "version": "1.0.0",
+  "description": "notification app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/a-m-a-z/post-it-app.git"
+  },
+  "author": "Ahmad Abdul-Aziz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/a-m-a-z/post-it-app/issues"
+  },
+  "homepage": "https://github.com/a-m-a-z/post-it-app#readme",
+  "dependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "firebase": "^4.0.0",
+    "nodemon": "^1.11.0",
+    "webpack": "^2.6.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "nodemon": "^1.11.0"
+  }
+}
