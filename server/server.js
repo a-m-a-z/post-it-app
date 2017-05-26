@@ -1,23 +1,36 @@
+// BASE SETUP =====================================================
 const express = require('express');
-let	bodyParser = require('body-parser');
+const	bodyParser = require('body-parser');
+const app = express();
+const port =process.env.PORT || 3000;
 
+// FIREBASE SETUP =====================================================
+const	firebase = require('firebase');
+firebase.initializeApp({
+ 	apiKey: "AIzaSyA5QqiYnZRRUPfD9TkmchFtnGs9M8eF740",
+  authDomain: "postlt-54c26.firebaseapp.com",
+  databaseURL: "https://postlt-54c26.firebaseio.com",
+  projectId: "postlt-54c26",
+  storageBucket: "postlt-54c26.appspot.com",
+  messagingSenderId: "1002590696573"
+});
 
-let app = express();
-let port = process.env.PORT || 3000;
-let  register = require('../server/register');
-let  signin = require('../server/signin');
-let  group = require('../server/group');
+// CALLING THE MODULES================================================================
+const index = require('../server/index');
+const register = require('../server/register');
+const signin = require('../server/signin');
+const group = require('../server/group');
 
-
+// body parser, this grap information from POST requests
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-
+// API Routes =================================================================
+index(app);
 register(app);
 signin(app);
 group(app);
 
 
-app.listen(port, () => {
-console.log('We are live on ' + port);
-});
+//START THE SERVER ===========================================================
+app.listen(port);
