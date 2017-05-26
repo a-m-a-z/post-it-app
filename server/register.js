@@ -11,10 +11,8 @@ module.exports = (app) => {
 			password = req.body.password;
 		firebase.auth().createUserWithEmailAndPassword(email, password)
         .then( (user) =>{
-	firebase.database().ref('users').push({
-		username : full_name,
-		email : email,
-		password: password
+	user.updateProfile({
+		username : full_name
 	});
 	res.send({message: 'Success: A user has been successfuly registered.'})
 })
@@ -22,7 +20,7 @@ module.exports = (app) => {
 });
 	});
 
-	app.get('/signin', function(req, res) {
+	app.get('/register', function(req, res) {
 		res.send('REGISTRATION ROUTE!');
 	});
 
