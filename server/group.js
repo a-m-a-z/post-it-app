@@ -20,7 +20,9 @@ module.exports = function (app) {
 		});
 	});
 
+
 	app.get('/group', function(req, res) {
 		res.send('GROUP ROUTE!');
 	});
+
 };
