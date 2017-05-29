@@ -1,7 +1,7 @@
 //CALL  FIREBASE  ===================
 let	firebase = require('firebase');
 
-//THIS  EXPORT MODULE  ===================
+//EXPORT  THIS  AS MODULE  ===================
 module.exports =  (app) => {
 
 // SIGN-IN ROUTES ===================

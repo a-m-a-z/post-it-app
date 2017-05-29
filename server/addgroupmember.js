@@ -18,7 +18,7 @@ module.exports = function (app) {
 				res.send('Member add to the group ');
 			}else{
 				res.send('Please signin ');
-				
+			
 			}
 		});
 	});

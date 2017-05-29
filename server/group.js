@@ -28,6 +28,4 @@ module.exports = function (app) {
 			}
 		});
 	});
-
-
 };
