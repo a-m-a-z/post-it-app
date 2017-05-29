@@ -17,13 +17,12 @@ module.exports = (app) => {
 		password: password
 	});
 	res.send({message: 'Success: A user has been successfuly registered.'})
-})
-        .catch((err) => {	res.send({message: 'You have error code '+err.code+' and the error message is'+err.message});
+}).catch((error) => {
+	res.status(401).send({message: error.code});
+	res.send({message: error.message});
 });
 	});
 
-	app.get('/signin', function(req, res) {
-		res.send('REGISTRATION ROUTE!');
-	});
+
 
 };
