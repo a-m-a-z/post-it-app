@@ -9,7 +9,7 @@ module.exports =  (app) => {
 
 		let  email = req.body.email,
 			password = req.body.password;
-			
+
 		// sign in with email and password
 		firebase.auth().signInWithEmailAndPassword(email, password)
         .then(() =>{
