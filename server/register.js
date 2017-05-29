@@ -11,18 +11,17 @@ module.exports = (app) => {
 			password = req.body.password;
 		firebase.auth().createUserWithEmailAndPassword(email, password)
         .then( (user) =>{
-	firebase.database().ref('users').push({
-		username : full_name,
-		email : email,
-		password: password
+	user.updateProfile({
+		username : full_name
 	});
 	res.send({message: 'Success: A user has been successfuly registered.'})
-}).catch((error) => {
-	res.status(401).send({message: error.code});
-	res.send({message: error.message});
+})
+        .catch((err) => {	res.send({message: 'You have error code '+err.code+' and the error message is'+err.message});
 });
 	});
 
-
+	app.get('/register', function(req, res) {
+		res.send('REGISTRATION ROUTE!');
+	});
 
 };
