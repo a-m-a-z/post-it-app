@@ -9,20 +9,23 @@ module.exports = function (app) {
 		let  groupname = req.body.groupname;
 		firebase.auth().onAuthStateChanged((user) => {
 			if(user){
+
+				// this will get the ID of person than create the group
+				let userId = user.uid;
+
+				// create the new group
 				const groupKey =firebase.database().ref('group').push({
 					groupname : groupname
 				}).key;
-				res.send('You create Group name  '+groupname);
+
+				//add user to the member of group
+				firebase.database().ref().child('group/'+groupKey+'/users/'+userId);
+
+				res.send({message: ' You create Group name  '+groupname });
 			}
 			else {
-				res.send('User is not signed in');
+				res.status(403).send({message: 'User is not signed in'});
 			}
 		});
 	});
-
-
-	app.get('/group', function(req, res) {
-		res.send('GROUP ROUTE!');
-	});
-
 };
