@@ -21,7 +21,7 @@ module.exports = function (app) {
 				//add user to the member of group
 				firebase.database().ref().child('group/'+groupKey+'/users/'+userId);
 
-				res.send({message: 'You create Group name  '+groupname });
+				res.send({message: ' You create Group name  '+groupname });
 			}
 			else {
 				res.status(403).send({message: 'User is not signed in'});
