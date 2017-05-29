@@ -20,6 +20,7 @@ const index = require('../server/index');
 const register = require('../server/register');
 const signin = require('../server/signin');
 const group = require('../server/group');
+const create = require('../server/addgroupmember');
 
 // body parser, this grap information from POST requests
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -30,6 +31,7 @@ index(app);
 register(app);
 signin(app);
 group(app);
+create(app);
 
 
 //START THE SERVER ===========================================================
